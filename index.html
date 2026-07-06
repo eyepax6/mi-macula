@@ -196,7 +196,6 @@ a{ color:inherit; text-decoration:none; }
 .finding{ font-size:15px; padding:13px 16px; text-align:left; letter-spacing:-.005em; }
 .finding + .finding{ border-top:0.5px solid var(--sep); }
 .finding b{ color:var(--ink); margin-right:8px; font-weight:700; }
-.result-links{ display:flex; gap:20px; margin-top:14px; }
 .home-links{ display:flex; align-items:center; gap:12px; margin-top:22px; }
 .home-links button{ font-size:14.5px; font-weight:500; color:var(--muted);
   padding:8px 4px; letter-spacing:-.005em; }
@@ -324,8 +323,6 @@ a{ color:inherit; text-decoration:none; }
 //# sourceMappingURL=compat.umd.js.map
 </script>
 <script>
-/* Preact/compat como sustituto de React. El UMD de compat no incluye
-   createRoot (vive en compat/client, sin build UMD): shim sobre preact.render. */
 var React = preactCompat;
 var ReactDOM = Object.assign({}, preactCompat, {
   createRoot: function (el) {
@@ -1113,12 +1110,12 @@ var ReactDOM = Object.assign({}, preactCompat, {
     }, "Repetir prueba"), /*#__PURE__*/React.createElement("button", {
       className: "link-btn"
     }, saved ? "Guardado en tu historial ✓" : "Guardando…")), /*#__PURE__*/React.createElement("div", {
-      className: "result-links"
+      className: "home-links"
     }, /*#__PURE__*/React.createElement("button", {
-      className: "link-btn",
       onClick: goEducation
-    }, "Ver ejemplos educativos"), /*#__PURE__*/React.createElement("button", {
-      className: "link-btn",
+    }, "Ver ejemplos"), /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true"
+    }, "·"), /*#__PURE__*/React.createElement("button", {
       onClick: onHistory
     }, "Mi historial")));
   }
