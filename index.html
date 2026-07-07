@@ -66,7 +66,7 @@ a{ color:inherit; text-decoration:none; }
 [data-theme="dark"] .logo .logo-l{ display:block; }
 .icon-btn{
   width:34px; height:34px; border-radius:50%;
-  font-size:24px; line-height:1; padding-bottom:3px;
+  font-size:22px; line-height:1; padding-bottom:3px;
   display:flex; align-items:center; justify-content:center;
   color:var(--ink); background:var(--surface-2);
   transition:transform .15s var(--spring), opacity .15s;
@@ -90,7 +90,7 @@ a{ color:inherit; text-decoration:none; }
 .title.small{ font-size:clamp(21px,4.8vw,25px); letter-spacing:-.02em; }
 .lede{ font-size:17px; color:var(--muted); max-width:30ch; margin:10px auto 0; letter-spacing:-.005em; }
 .fineprint{ font-size:13px; color:var(--muted); max-width:38ch; margin:18px auto 0; line-height:1.5; }
-.contact-card .city{ font-size:12.5px; font-weight:600; color:var(--faint); margin-top:2px;
+.contact-card .city{ font-size:12px; font-weight:600; color:var(--faint); margin-top:2px;
   letter-spacing:.03em; }
 
 /* ---------- marca de portada ---------- */
@@ -114,13 +114,19 @@ a{ color:inherit; text-decoration:none; }
 .big-ghost{ background:var(--surface-2); color:var(--ink); }
 .big.is-disabled{ opacity:.35; pointer-events:none; }
 /* Enlaces en tinta (11:1) — el coral pequeño no alcanza AA */
-.link-btn{ font-size:16px; font-weight:600; color:var(--ink); padding:10px; letter-spacing:-.005em; }
+.link-btn{ font-size:15px; font-weight:600; color:var(--ink); padding:10px; letter-spacing:-.005em; }
 .link-btn.danger{ display:block; margin:6px auto 0; color:var(--muted); transition:color .2s, background .2s; }
 .link-btn.danger.confirming{ color:#fff; background:var(--accent); border-radius:999px;
   padding:10px 18px; font-weight:700; }
 
 /* ---------- listas agrupadas ---------- */
-.prep-list{ list-style:none; margin-top:26px; background:var(--surface);
+.explainer{ margin-top:16px; padding:16px 18px; border-radius:var(--r-card);
+  background:var(--surface-2); font-size:15px; line-height:1.55; color:var(--text);
+  letter-spacing:-.005em; }
+.explainer b{ color:var(--ink); }
+.prep-time{ text-align:center; font-size:15px; color:var(--muted); margin-top:14px; }
+.prep-time b{ color:var(--ink); }
+.prep-list{ list-style:none; margin-top:18px; background:var(--surface);
   border-radius:var(--r-card); box-shadow:var(--card-shadow); overflow:hidden; }
 .prep-list li{ display:flex; align-items:center; gap:15px; font-size:17px; font-weight:450;
   letter-spacing:-.008em; padding:15px 18px; animation:rowIn .4s var(--spring) both; }
@@ -150,7 +156,7 @@ a{ color:inherit; text-decoration:none; }
 .fixdot{ transform-box:fill-box; transform-origin:center; animation:breathe 3.4s ease-in-out infinite; }
 @keyframes breathe{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.26); } }
 
-.grid-note{ font-size:13.5px; color:var(--muted); text-align:center;
+.grid-note{ font-size:13px; color:var(--muted); text-align:center;
   max-width:44ch; margin:2px auto 0; line-height:1.5; }
 
 /* ---------- síntomas ---------- */
@@ -186,14 +192,14 @@ a{ color:inherit; text-decoration:none; }
 .finding + .finding{ border-top:0.5px solid var(--sep); }
 .finding b{ color:var(--ink); margin-right:8px; font-weight:700; }
 .home-links{ display:flex; align-items:center; gap:12px; margin-top:22px; }
-.home-links button{ font-size:14.5px; font-weight:500; color:var(--muted);
+.home-links button{ font-size:15px; font-weight:500; color:var(--muted);
   padding:8px 4px; letter-spacing:-.005em; }
 .home-links button:active{ color:var(--ink); }
 .home-links span{ color:var(--faint); font-size:13px; }
 .share-fallback{ display:flex; gap:10px; margin-top:14px; width:100%; max-width:320px; }
 
 /* ---------- educación ---------- */
-.edu-caveat{ font-size:14.5px; color:var(--muted); line-height:1.5; letter-spacing:-.005em;
+.edu-caveat{ font-size:15px; color:var(--muted); line-height:1.5; letter-spacing:-.005em;
   background:var(--surface); border-radius:var(--r-card); box-shadow:var(--card-shadow); padding:16px 18px; margin-top:16px; }
 .edu-caveat b{ color:var(--text); }
 .edu-grid{ margin-top:16px; display:flex; flex-direction:column; gap:16px; }
@@ -202,7 +208,7 @@ a{ color:inherit; text-decoration:none; }
 .edu-vis svg{ border-radius:14px; }
 .edu-body{ padding:8px 20px 20px; }
 .edu-body b{ font-size:17px; letter-spacing:-.015em; }
-.edu-body p{ font-size:14.5px; color:var(--muted); margin-top:3px; letter-spacing:-.005em; }
+.edu-body p{ font-size:15px; color:var(--muted); margin-top:3px; letter-spacing:-.005em; }
 .slider-row{ display:flex; align-items:center; gap:12px; margin-top:16px; font-size:12px;
   font-weight:600; color:var(--faint); text-transform:uppercase; letter-spacing:.05em; }
 .slider-row input[type="range"]{ flex:1; -webkit-appearance:none; appearance:none; height:4px;
@@ -214,11 +220,21 @@ a{ color:inherit; text-decoration:none; }
   background:#fff; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,.16); }
 
 /* ---------- contacto ---------- */
-.contact-doctor{ font-size:14px; color:var(--muted); margin-top:8px; letter-spacing:-.005em; }
+.contact-doctor{ font-size:13px; color:var(--muted); margin-top:8px; letter-spacing:-.005em; }
 .contact-grid{ margin-top:14px; display:flex; flex-direction:column; gap:14px; }
 .contact-card{ background:var(--surface); border-radius:var(--r-card); box-shadow:var(--card-shadow); padding:20px 20px; }
-.contact-card b{ font-size:18px; font-weight:700; letter-spacing:-.02em; }
-.contact-tel{ font-size:16px; font-weight:500; color:var(--muted); margin-top:4px; letter-spacing:-.005em; }
+.contact-card b{ font-size:17px; font-weight:700; letter-spacing:-.02em; }
+.contact-tel{ font-size:15px; font-weight:500; color:var(--muted); margin-top:4px; letter-spacing:-.005em; }
+.ig-card{ display:flex; align-items:center; gap:14px; margin-top:16px;
+  padding:16px 18px; border-radius:var(--r-card); background:var(--surface);
+  box-shadow:var(--card-shadow); transition:transform .15s var(--spring); }
+.ig-card:active{ transform:scale(.985); }
+.ig-glyph{ flex:0 0 44px; height:44px; border-radius:12px; background:var(--surface-2);
+  display:flex; align-items:center; justify-content:center; color:var(--accent); }
+.ig-text{ flex:1; display:flex; flex-direction:column; }
+.ig-text b{ font-size:15px; letter-spacing:-.01em; }
+.ig-text span{ font-size:13px; color:var(--muted); }
+.ig-arrow{ color:var(--faint); font-size:22px; font-weight:600; }
 .contact-actions{ display:flex; gap:8px; margin-top:16px; }
 .mini{ flex:1; text-align:center; min-height:44px; display:flex; align-items:center; justify-content:center;
   border-radius:var(--r-ctl); font-size:15px; font-weight:600; letter-spacing:-.008em;
@@ -234,7 +250,7 @@ a{ color:inherit; text-decoration:none; }
 .tl-dot{ flex:0 0 10px; width:10px; height:10px; border-radius:50%; background:var(--accent); margin-top:6px; }
 .tl-content{ flex:1; }
 .tl-when{ display:flex; align-items:baseline; gap:9px; }
-.tl-when b{ font-size:15.5px; letter-spacing:-.01em; }
+.tl-when b{ font-size:15px; letter-spacing:-.01em; }
 .tl-when span{ font-size:13px; color:var(--faint); }
 .tl-chips{ display:flex; flex-wrap:wrap; gap:5px; margin-top:7px; }
 .tl-chip{ font-size:12px; font-weight:600; padding:4px 10px; border-radius:999px; letter-spacing:-.005em; }
@@ -244,14 +260,14 @@ a{ color:inherit; text-decoration:none; }
 .tl-del{ font-size:13px; color:var(--muted); padding:4px; }
 .tl-del:active{ color:var(--accent); }
 .history-tools{ display:flex; justify-content:center; gap:18px; }
-.history-msg{ text-align:center; font-size:13.5px; font-weight:600; color:var(--ink); margin-top:6px; }
-.storage-note{ font-size:12.5px; color:var(--faint); margin-top:16px; line-height:1.5; letter-spacing:-.003em; }
+.history-msg{ text-align:center; font-size:13px; font-weight:600; color:var(--ink); margin-top:6px; }
+.storage-note{ font-size:12px; color:var(--faint); margin-top:16px; line-height:1.5; letter-spacing:-.003em; }
 
 /* ---------- pie ---------- */
 .app-foot{ text-align:center; padding:22px 0 calc(26px + env(safe-area-inset-bottom)); margin-top:24px;
   border-top:0.5px solid var(--sep); display:flex; flex-direction:column; gap:7px; }
-.app-foot span{ font-size:12.5px; color:var(--muted); letter-spacing:-.003em; }
-.app-foot .disc{ font-size:11.5px; color:var(--muted); max-width:42ch; margin:0 auto; line-height:1.5; }
+.app-foot span{ font-size:12px; color:var(--muted); letter-spacing:-.003em; }
+.app-foot .disc{ font-size:12px; color:var(--muted); max-width:42ch; margin:0 auto; line-height:1.5; }
 
 /* =====================================================================
    Adaptación automática por plataforma
@@ -714,6 +730,7 @@ a{ color:inherit; text-decoration:none; }
       radius: 0.32
     }
   }];
+  const IG_URL = "https://www.instagram.com/danielgarcia_oftalmo/";
   const HOSPITALS = [{
     name: "Hospital Español",
     city: "CDMX, México",
@@ -938,7 +955,9 @@ a{ color:inherit; text-decoration:none; }
       className: "scr"
     }, /*#__PURE__*/React.createElement("h2", {
       className: "title"
-    }, "Prepárate"), /*#__PURE__*/React.createElement("ul", {
+    }, "Prepárate"), /*#__PURE__*/React.createElement("div", {
+      className: "explainer"
+    }, /*#__PURE__*/React.createElement("b", null, "¿Qué vamos a revisar?"), " El centro de tu retina —la mácula— es la parte que usas para leer, ver caras y distinguir detalles finos. Esta cuadrícula ayuda a notar si esa zona central está deformando o borrando lo que ves. No mide tu graduación ni reemplaza una revisión con el oftalmólogo."), /*#__PURE__*/React.createElement("ul", {
       className: "prep-list"
     }, items.map((it, k) => /*#__PURE__*/React.createElement("li", {
       key: k,
@@ -948,7 +967,9 @@ a{ color:inherit; text-decoration:none; }
     }, /*#__PURE__*/React.createElement("span", {
       className: "prep-ico",
       "aria-hidden": "true"
-    }, it.i), it.t))), /*#__PURE__*/React.createElement("div", {
+    }, it.i), it.t))), /*#__PURE__*/React.createElement("p", {
+      className: "prep-time"
+    }, "Mira el punto central unos ", /*#__PURE__*/React.createElement("b", null, "10 segundos"), " con cada ojo."), /*#__PURE__*/React.createElement("div", {
       className: "scr-foot"
     }, /*#__PURE__*/React.createElement(Big, {
       onClick: () => go(next)
@@ -977,7 +998,7 @@ a{ color:inherit; text-decoration:none; }
       className: "grid-box"
     }, /*#__PURE__*/React.createElement(AmslerGrid, null))), /*#__PURE__*/React.createElement("p", {
       className: "grid-note"
-    }, "Colócate a 30–40 cm de la pantalla. Un defecto puede no verse como mancha: busca zonas donde falten cruces o el patrón parezca “rellenarse”."), /*#__PURE__*/React.createElement("div", {
+    }, "Míralo unos ", /*#__PURE__*/React.createElement("b", null, "10 segundos"), ", a 30–40 cm de la pantalla. Un defecto puede no verse como mancha: busca zonas donde falten cruces o el patrón parezca “rellenarse”."), /*#__PURE__*/React.createElement("div", {
       className: "scr-foot two"
     }, /*#__PURE__*/React.createElement("button", {
       className: "link-btn",
@@ -1222,7 +1243,46 @@ a{ color:inherit; text-decoration:none; }
       target: "_blank",
       rel: "noopener noreferrer",
       onClick: () => buzz()
-    }, "Ubicación"))))), /*#__PURE__*/React.createElement("div", {
+    }, "Ubicación"))))), /*#__PURE__*/React.createElement("a", {
+      className: "ig-card",
+      href: IG_URL,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      onClick: () => buzz()
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "ig-glyph",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 24 24",
+      width: "24",
+      height: "24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.9",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: "3",
+      y: "3",
+      width: "18",
+      height: "18",
+      rx: "5.4"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "4.2"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "17.4",
+      cy: "6.6",
+      r: "1.1",
+      fill: "currentColor",
+      stroke: "none"
+    }))), /*#__PURE__*/React.createElement("span", {
+      className: "ig-text"
+    }, /*#__PURE__*/React.createElement("b", null, "Sígueme en Instagram"), /*#__PURE__*/React.createElement("span", null, "@danielgarcia_oftalmo")), /*#__PURE__*/React.createElement("span", {
+      className: "ig-arrow",
+      "aria-hidden": "true"
+    }, "›")), /*#__PURE__*/React.createElement("div", {
       className: "scr-foot"
     }, /*#__PURE__*/React.createElement(Big, {
       kind: "ghost",
