@@ -159,14 +159,22 @@ a{ color:inherit; text-decoration:none; }
   padding:7px 16px; border-radius:999px; }
 .grid-instr{ font-size:15px; color:var(--muted); letter-spacing:-.005em; }
 .grid-stage{ flex:1; display:flex; align-items:center; justify-content:center; width:100%; padding:16px 0; }
-.grid-box{ width:100%; max-width:min(76vh,430px); }
+.grid-box{ width:100%; max-width:min(52vh,420px); }
 .amsler{ width:100%; height:auto; display:block;
   border-radius:var(--r-card); box-shadow:var(--card-shadow); }
 .fixdot{ transform-box:fill-box; transform-origin:center; animation:breathe 3.4s ease-in-out infinite; }
 @keyframes breathe{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.26); } }
 
+.count-chip{ align-self:center; margin-top:10px; padding:8px 18px;
+  border-radius:999px; background:var(--surface); box-shadow:var(--card-shadow);
+  font-size:15px; font-weight:600; color:var(--ink);
+  font-variant-numeric:tabular-nums; transition:background .3s, color .3s; }
+.count-chip.done{ background:var(--accent); color:#fff; }
+.scr-foot.one{ justify-content:center; }
+.scr-grid .grid-stage{ padding:10px 0; }
+.scr-grid .grid-head{ gap:6px; }
 .grid-note{ font-size:13px; color:var(--muted); text-align:center;
-  max-width:44ch; margin:2px auto 0; line-height:1.5; }
+  max-width:44ch; margin:8px auto 0; line-height:1.45; }
 
 /* ---------- síntomas ---------- */
 .sym-list{ margin-top:20px; background:var(--surface); border-radius:var(--r-card);
@@ -306,7 +314,7 @@ a{ color:inherit; text-decoration:none; }
   .stage{ padding-top:22px; }
   .edu-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .grid-box{ max-width:min(72vh,480px); }
+  .grid-box{ max-width:min(60vh,480px); }
   .display{ font-size:52px; }
   .prep-list li{ padding:17px 22px; }
 }
@@ -337,6 +345,50 @@ a{ color:inherit; text-decoration:none; }
   .title{ font-size:22px; }
   .timeline{ box-shadow:none; border:0.5px solid #ccc; }
   .tl-item{ break-inside:avoid; }
+}
+
+
+/* =====================================================================
+   Ajuste por ALTURA de pantalla: en dispositivos cortos (iPhone SE,
+   Android compactos) todo el flujo cabe sin desplazamiento. Las
+   pantallas altas (tablet/PC) conservan las proporciones amplias.
+   ===================================================================== */
+@media (max-height:740px){
+  .display{ font-size:32px; margin-top:12px; }
+  .subtitle{ font-size:17px; margin-top:6px; }
+  .hero-mark .logo img{ width:64px; }
+  .title{ font-size:22px; }
+  .title.small{ font-size:19px; }
+  .explainer{ font-size:13px; padding:11px 14px; margin-top:10px; }
+  .prep-list{ margin-top:12px; }
+  .prep-list li{ padding:9px 14px; font-size:15px; }
+  .prep-ico{ flex:0 0 34px; height:34px; font-size:16px; }
+  .prep-ico svg{ width:18px; height:18px; }
+  .prep-time{ margin-top:8px; font-size:13px; }
+  .sym{ min-height:50px; padding:8px 14px; font-size:15px; }
+  .sym-ico{ flex:0 0 32px; height:32px; font-size:15px; }
+  .sym-list{ margin-top:12px; }
+  .result-orb{ width:70px; height:70px; font-size:30px; margin-bottom:4px; }
+  .fineprint{ margin-top:10px; font-size:12px; }
+  .findings{ margin:10px 0 0; }
+  .finding{ padding:9px 14px; font-size:13px; }
+  .stack{ margin-top:18px; gap:8px; }
+  .big{ min-height:48px; padding:12px 22px; font-size:15px; }
+  .scr-foot{ padding:14px 0 10px; }
+  .scr-center{ padding-top:10px; padding-bottom:20px; }
+  .grid-box{ max-width:min(46vh,420px); }
+  .count-chip{ margin-top:6px; padding:6px 14px; font-size:13px; }
+  .grid-note{ font-size:12px; margin-top:5px; }
+  .progress{ margin-bottom:2px; }
+  .stage{ padding-top:6px; }
+  .topbar{ padding-top:calc(8px + env(safe-area-inset-top)); padding-bottom:6px; }
+}
+/* Pantallas medianas de teléfono: compactación leve */
+@media (min-height:741px) and (max-height:850px){
+  .prep-list li{ padding:12px 16px; }
+  .sym{ min-height:56px; }
+  .explainer{ font-size:14px; padding:13px 16px; }
+  .fineprint{ margin-top:12px; }
 }
 
 </style></head><body><div id="root"></div>
@@ -996,7 +1048,7 @@ a{ color:inherit; text-decoration:none; }
       "aria-hidden": "true"
     }, it.i), it.t))), /*#__PURE__*/React.createElement("p", {
       className: "prep-time"
-    }, "Mira el punto central unos ", /*#__PURE__*/React.createElement("b", null, "10 segundos"), " con cada ojo."), /*#__PURE__*/React.createElement("div", {
+    }, "La app contará ", /*#__PURE__*/React.createElement("b", null, "10 segundos"), " por cada ojo; al terminar, toca ", /*#__PURE__*/React.createElement("b", null, "Siguiente"), "."), /*#__PURE__*/React.createElement("div", {
       className: "scr-foot"
     }, /*#__PURE__*/React.createElement(Big, {
       onClick: () => go(next)
@@ -1008,6 +1060,24 @@ a{ color:inherit; text-decoration:none; }
     onNext,
     onBack
   }) {
+    // La app lleva el tiempo: contrato temporal explícito (queja real de usuaria:
+    // "no sabía si era de tiempo"). Al llegar a 0 se resalta la única acción.
+    const TOTAL = 10;
+    const [left, setLeft] = useState(TOTAL);
+    useEffect(() => {
+      setLeft(TOTAL);
+      const id = setInterval(() => {
+        setLeft(v => {
+          if (v <= 1) {
+            clearInterval(id);
+            buzz(14);
+            return 0;
+          }
+          return v - 1;
+        });
+      }, 1000);
+      return () => clearInterval(id);
+    }, [eye]);
     return /*#__PURE__*/React.createElement("div", {
       className: "scr scr-grid"
     }, /*#__PURE__*/React.createElement("div", {
@@ -1019,18 +1089,20 @@ a{ color:inherit; text-decoration:none; }
       className: "eye-pill"
     }, eye === "od" ? "Ojo derecho" : "Ojo izquierdo"), /*#__PURE__*/React.createElement("p", {
       className: "grid-instr"
-    }, "Cubre tu ", eye === "od" ? "ojo izquierdo" : "ojo derecho", " y mira solo el punto")), /*#__PURE__*/React.createElement("div", {
+    }, "Cubre tu ", eye === "od" ? "ojo izquierdo" : "ojo derecho", " y mira solo el punto coral")), /*#__PURE__*/React.createElement("div", {
       className: "grid-stage"
     }, /*#__PURE__*/React.createElement("div", {
       className: "grid-box"
-    }, /*#__PURE__*/React.createElement(AmslerGrid, null))), /*#__PURE__*/React.createElement("p", {
+    }, /*#__PURE__*/React.createElement(AmslerGrid, null))), /*#__PURE__*/React.createElement("div", {
+      className: "count-chip" + (left === 0 ? " done" : ""),
+      role: "timer",
+      "aria-live": "polite"
+    }, left > 0 ? `Observa el punto · ${left} s` : "Listo — toca Siguiente"), /*#__PURE__*/React.createElement("p", {
       className: "grid-note"
-    }, "Míralo unos ", /*#__PURE__*/React.createElement("b", null, "10 segundos"), ", a 30–40 cm de la pantalla. Un defecto puede no verse como mancha: busca zonas donde falten cruces o el patrón parezca “rellenarse”."), /*#__PURE__*/React.createElement("div", {
-      className: "scr-foot two"
-    }, /*#__PURE__*/React.createElement("button", {
-      className: "link-btn",
-      onClick: onBack
-    }, "Atrás"), /*#__PURE__*/React.createElement(Big, {
+    }, "A 30–40 cm. Un defecto puede verse como líneas torcidas, zonas borrosas o cruces que faltan — no solo como una mancha."), /*#__PURE__*/React.createElement("div", {
+      className: "scr-foot one"
+    }, /*#__PURE__*/React.createElement(Big, {
+      kind: left === 0 ? "accent" : "primary",
       onClick: onNext
     }, "Siguiente")));
   }
@@ -1677,7 +1749,7 @@ a{ color:inherit; text-decoration:none; }
       onImport: importEntries,
       onBack: () => go(returnRef.current || "welcome"),
       onPrint: printPDF
-    })), /*#__PURE__*/React.createElement("footer", {
+    })), !["test", "prep", "result"].includes(screen) && /*#__PURE__*/React.createElement("footer", {
       className: "app-foot no-print"
     }, /*#__PURE__*/React.createElement("span", null, "Dr. Luis Daniel García Arzate · Oftalmología · Retina y Vítreo"), /*#__PURE__*/React.createElement("span", {
       className: "disc"
