@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>MaculaCheck — Revisión de la visión central · Dr. Luis Daniel García Arzate</title><meta name="description" content="MaculaCheck guía una autoobservación de la visión central mediante la rejilla de Amsler."/><meta name="theme-color" content="#053d3c"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="MaculaCheck"/><style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>MaculaCheck — Revisión de la visión central · Dr. Luis Daniel García Arzate</title><meta theme-color="#053d3c"/><style>
 /* ============================================================
    Revisión de la Visión Central — esquema único, legible (WCAG AA)
    Paleta: fondo #f0faf1 · tinta #053d3c · coral #cb6b5c (solo roles grandes)
@@ -43,6 +43,9 @@ body{
 button{ font-family:inherit; cursor:pointer; color:inherit; background:none; border:none; font-size:inherit; }
 a{ color:inherit; text-decoration:none; }
 :focus-visible{ outline:3px solid var(--accent); outline-offset:2px; border-radius:10px; }
+/* El foco programático en títulos (anuncio a lectores de pantalla en cada
+   transición de escena) no debe dibujar el anillo: no es navegación tabulada. */
+.focus-mgmt:focus-visible, .focus-mgmt:focus{ outline:none; }
 
 /* ---------- estructura ---------- */
 .app{ max-width:520px; margin:0 auto; min-height:100vh; min-height:100dvh;
@@ -2290,7 +2293,11 @@ a{ color:inherit; text-decoration:none; }
       const t = setTimeout(() => {
         const h = document.querySelector(".stage h1, .stage h2");
         if (h) {
+          // Foco programático (no tabulado): anuncia la pantalla a lectores de
+          // pantalla sin dibujar el anillo de :focus-visible (eso es solo para
+          // navegación real por teclado en controles interactivos).
           h.setAttribute("tabindex", "-1");
+          h.classList.add("focus-mgmt");
           try {
             h.focus({
               preventScroll: true
