@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>MaculaCheck — Revisión de la visión central · Dr. Luis Daniel García Arzate</title><meta theme-color="#053d3c"/><style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><title>MaculaCheck — Revisión de la visión central · Dr. Luis Daniel García Arzate</title><meta name="description" content="MaculaCheck guía una autoobservación de la visión central mediante la rejilla de Amsler. Del Dr. Luis Daniel García Arzate, Oftalmología, Retina y Vítreo. CDMX, México. No sustituye una valoración oftalmológica."/><meta name="theme-color" content="#053d3c"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="MaculaCheck"/><style>
 /* ============================================================
    Revisión de la Visión Central — esquema único, legible (WCAG AA)
    Paleta: fondo #f0faf1 · tinta #053d3c · coral #cb6b5c (solo roles grandes)
@@ -1301,7 +1301,7 @@ a{ color:inherit; text-decoration:none; }
       className: "scr-foot"
     }, /*#__PURE__*/React.createElement(Big, {
       onClick: () => go(next)
-    }, "Estoy listo")));
+    }, "Estoy listo/a")));
   }
   function ObserveStep({
     eye,
@@ -1373,7 +1373,7 @@ a{ color:inherit; text-decoration:none; }
         buzz();
         setRound(r => r + 1);
       }
-    }, "No estoy seguro"), /*#__PURE__*/React.createElement(Big, {
+    }, "No estoy seguro/a"), /*#__PURE__*/React.createElement(Big, {
       kind: "accent",
       onClick: onNext
     }, "Sí, pude hacerlo"))) : /*#__PURE__*/React.createElement("div", {
@@ -1388,15 +1388,15 @@ a{ color:inherit; text-decoration:none; }
   const BASELINE_QS = [{
     k: "status",
     q: "¿Es nueva o peor que tu visión habitual?",
-    opts: [["new", "Nueva"], ["worse", "Ha empeorado"], ["stable", "Es igual que siempre"], ["unsure", "No estoy seguro"]]
+    opts: [["new", "Nueva"], ["worse", "Ha empeorado"], ["stable", "Es igual que siempre"], ["unsure", "No estoy seguro/a"]]
   }, {
     k: "sudden",
     q: "¿Comenzó súbitamente?",
-    opts: [["yes", "Sí"], ["no", "No"], ["unsure", "No estoy seguro"]]
+    opts: [["yes", "Sí"], ["no", "No"], ["unsure", "No estoy seguro/a"]]
   }, {
     k: "seen",
     q: "¿Esta alteración ya fue valorada por un oftalmólogo?",
-    opts: [["yes", "Sí"], ["no", "No"], ["unsure", "No estoy seguro"]]
+    opts: [["yes", "Sí"], ["no", "No"], ["unsure", "No estoy seguro/a"]]
   }];
   function BaselineStep({
     eye,
@@ -2122,7 +2122,7 @@ a{ color:inherit; text-decoration:none; }
       className: "link-btn danger no-print" + (confirming ? " confirming" : ""),
       onClick: handleClear,
       "aria-live": "polite"
-    }, confirming ? "¿Seguro? Toca de nuevo para borrar todo" : "Borrar historial"));
+    }, confirming ? "¿Seguro/a? Toca de nuevo para borrar todo" : "Borrar historial"));
   }
 
   /* ---------------------------------------------------------------------
