@@ -433,6 +433,8 @@ a{ color:inherit; text-decoration:none; }
 .confirm-block{ width:100%; }
 .confirm-q{ text-align:center; font-size:16px; font-weight:600; color:var(--ink);
   max-width:40ch; margin:8px auto 0; line-height:1.4; }
+/* Invisible pero ocupando su altura exacta: reserva de espacio sin salto */
+.confirm-q.hold{ visibility:hidden; }
 
 /* Preguntas de basal */
 .bq-group{ margin-top:14px; }
@@ -1361,13 +1363,14 @@ a{ color:inherit; text-decoration:none; }
       role: "status"
     }, sr), /*#__PURE__*/React.createElement("p", {
       className: "grid-note"
-    }, "A 33 cm. Un defecto puede verse como líneas torcidas, zonas borrosas o cruces que faltan — no solo como una mancha."), done ? /*#__PURE__*/React.createElement("div", {
+    }, "A 33 cm. Un defecto puede verse como líneas torcidas, zonas borrosas o cruces que faltan — no solo como una mancha."), /*#__PURE__*/React.createElement("div", {
       className: "confirm-block"
     }, /*#__PURE__*/React.createElement("p", {
-      className: "confirm-q"
+      className: "confirm-q" + (done ? "" : " hold"),
+      "aria-hidden": done ? undefined : "true"
     }, "¿Pudiste mantener la mirada en el punto central y observar toda la cuadrícula?"), /*#__PURE__*/React.createElement("div", {
       className: "scr-foot two"
-    }, /*#__PURE__*/React.createElement("button", {
+    }, done ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
       className: "link-btn",
       onClick: () => {
         buzz();
@@ -1376,11 +1379,9 @@ a{ color:inherit; text-decoration:none; }
     }, "No estoy seguro/a"), /*#__PURE__*/React.createElement(Big, {
       kind: "accent",
       onClick: onNext
-    }, "Sí, pude hacerlo"))) : /*#__PURE__*/React.createElement("div", {
-      className: "scr-foot one"
-    }, /*#__PURE__*/React.createElement(Big, {
+    }, "Sí, pude hacerlo")) : /*#__PURE__*/React.createElement(Big, {
       disabled: true
-    }, "Siguiente")));
+    }, "Siguiente"))));
   }
 
   /* Preguntas de basal por ojo: sin ellas, una alteración crónica estable
