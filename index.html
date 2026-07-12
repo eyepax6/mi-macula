@@ -455,6 +455,8 @@ a{ color:inherit; text-decoration:none; }
   padding:14px 18px; font-size:15px; font-weight:600; line-height:1.45;
   max-width:46ch; margin-top:12px; }
 .save-status{ font-size:14px; font-weight:600; color:var(--muted); margin-top:12px; }
+.autonomy-note{ text-align:center; font-size:13.5px; color:var(--muted);
+  margin-top:2px; line-height:1.4; }
 
 /* Historial: miniaturas y sesión calibrada */
 .tl-thumbs{ display:flex; gap:10px; margin-top:8px; }
@@ -1737,13 +1739,12 @@ a{ color:inherit; text-decoration:none; }
     }, cat === "C" && /*#__PURE__*/React.createElement(Big, {
       kind: "accent",
       onClick: goContact
-    }, "Contacta a tu oftalmólogo"), /*#__PURE__*/React.createElement(Big, {
+    }, "Agendar con el Dr. García Arzate"), /*#__PURE__*/React.createElement(Big, {
       kind: cat === "A" ? "primary" : "ghost",
       onClick: onRepeat
-    }, "Repetir revisión"), cat === "C" && /*#__PURE__*/React.createElement("button", {
-      className: "link-btn",
-      onClick: goContact
-    }, "Agendar con el Dr. Luis Daniel García Arzate")), /*#__PURE__*/React.createElement("div", {
+    }, "Repetir revisión"), cat === "C" && /*#__PURE__*/React.createElement("p", {
+      className: "autonomy-note"
+    }, "También puedes acudir con tu oftalmólogo de confianza.")), /*#__PURE__*/React.createElement("div", {
       className: "result-actions"
     }, /*#__PURE__*/React.createElement("button", {
       onClick: goEducation
